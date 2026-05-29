@@ -461,7 +461,7 @@ Important Metrics:
 
 ## Notifications Queue Details
 
-![Notifications Queue Details](../../assets/chapter-06/07-notification-queue-details.png)
+![Notifications Queue Details](../../assets/chapter-06/07-notifications-queue-details.png)
 
 RabbitMQ provides detailed visibility into queue activity.
 
