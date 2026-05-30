@@ -13,7 +13,7 @@ public class QueueConfig {
 
     public static final String AUDIT_QUEUE = "audit.queue";
 
-    private static final String UPDATES_QUEUE = "updates.queue";
+    public static final String UPDATES_QUEUE = "updates.queue";
 
     @Bean
     public Queue ordersQueue() {

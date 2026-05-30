@@ -29,4 +29,15 @@ public class QueueController {
         producer.sendNotificationMessage(message);
         return "Notification Message Published";
     }
+
+
+    @PostMapping("/orders/update")
+    public String publishOrderUpdate(
+            @RequestParam String message
+    ) {
+        producer.sendOrderUpdateMessage(
+                message
+        );
+        return "Order Update Published";
+    }
 }

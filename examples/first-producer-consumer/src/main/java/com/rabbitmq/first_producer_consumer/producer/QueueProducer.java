@@ -37,4 +37,20 @@ public class QueueProducer {
                 "Notification Message Sent : " + message
         );
     }
+
+
+    public void sendOrderUpdateMessage(
+            String message
+    ) {
+
+        rabbitTemplate.convertAndSend(
+                ExchangeConfig.ORDER_EXCHANGE,
+                ExchangeConfig.ORDER_UPDATED_KEY,
+                message
+        );
+
+        System.out.println(
+                "Order Update Sent : " + message
+        );
+    }
 }
