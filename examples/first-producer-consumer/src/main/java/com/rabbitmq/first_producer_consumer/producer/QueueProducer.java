@@ -2,6 +2,7 @@ package com.rabbitmq.first_producer_consumer.producer;
 
 
 import com.rabbitmq.first_producer_consumer.config.ExchangeConfig;
+import com.rabbitmq.first_producer_consumer.config.FanoutExchangeConfig;
 import com.rabbitmq.first_producer_consumer.config.QueueConfig;
 import lombok.RequiredArgsConstructor;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -67,6 +68,23 @@ public class QueueProducer {
 
         System.out.println(
                 "Order Cancelled Event Sent : "
+                        + message
+        );
+    }
+
+
+    public void publishNotification(
+            String message
+    ) {
+
+        rabbitTemplate.convertAndSend(
+                FanoutExchangeConfig.NOTIFICATION_EXCHANGE,
+                "",
+                message
+        );
+
+        System.out.println(
+                "Notification Published : "
                         + message
         );
     }
