@@ -1,6 +1,7 @@
 package com.rabbitmq.first_producer_consumer.producer;
 
 
+import com.rabbitmq.first_producer_consumer.config.QueueConfig;
 import com.rabbitmq.first_producer_consumer.config.RabbitMQConfig;
 import lombok.RequiredArgsConstructor;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -19,6 +20,36 @@ public class MessageProducer {
                 message
         );
         System.out.println("Message sent: "+message);
+    }
+
+    public void publishAutoAckMessage(
+            String message
+    ) {
+
+        rabbitTemplate.convertAndSend(
+                QueueConfig.AUTO_ACK_QUEUE,
+                message
+        );
+
+        System.out.println(
+                "AUTO ACK MESSAGE SENT : "
+                        + message
+        );
+    }
+
+    public void publishManualAckMessage(
+            String message
+    ) {
+
+        rabbitTemplate.convertAndSend(
+                QueueConfig.MANUAL_ACK_QUEUE,
+                message
+        );
+
+        System.out.println(
+                "MANUAL ACK MESSAGE SENT : "
+                        + message
+        );
     }
 
 }

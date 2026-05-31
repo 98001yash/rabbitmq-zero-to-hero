@@ -84,15 +84,25 @@ public class MessageController {
         return "Support Message Published Successfully";
     }
 
-    @PostMapping("/ack")
-    public String publishAckMessage(
+    @PostMapping("/ack/auto")
+    public String publishAutoAckMessage(
             @RequestParam String message
     ) {
 
-        messageProducer.publishAckMessage(
+        messageProducer.publishAutoAckMessage(
                 message
         );
+        return "Auto Ack Message Published";
+    }
 
-        return "Ack Demo Message Published";
+    @PostMapping("/ack/manual")
+    public String publishManualAckMessage(
+            @RequestParam String message
+    ) {
+
+        messageProducer.publishManualAckMessage(
+                message
+        );
+        return "Manual Ack Message Published";
     }
 }

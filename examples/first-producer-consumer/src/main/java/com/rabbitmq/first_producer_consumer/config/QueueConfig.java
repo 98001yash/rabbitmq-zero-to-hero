@@ -33,6 +33,12 @@ public class QueueConfig {
     public static final String SUPPORT_QUEUE =
             "support.queue";
 
+    public static final String AUTO_ACK_QUEUE =
+            "auto-ack.queue";
+
+    public static final String MANUAL_ACK_QUEUE =
+            "manual-ack.queue";
+
     @Bean
     public Queue ordersQueue() {
         return new Queue(ORDERS_QUEUE, true);
@@ -107,6 +113,24 @@ public class QueueConfig {
 
         return new Queue(
                 SUPPORT_QUEUE,
+                true
+        );
+    }
+
+    @Bean
+    public Queue autoAckQueue() {
+
+        return new Queue(
+                AUTO_ACK_QUEUE,
+                true
+        );
+    }
+
+    @Bean
+    public Queue manualAckQueue() {
+
+        return new Queue(
+                MANUAL_ACK_QUEUE,
                 true
         );
     }
